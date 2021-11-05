@@ -1,0 +1,36 @@
+server:
+  port: 1011
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/world?useSSL=false
+    username: root
+
+    password: farrukh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization: never
+
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      connection-timeout: 10000 #10s
+      idle-timeout: 300000 #5m
+      max-lifetime: 600000 #10m
+      initialization-fail-timeout: -1
+      validation-timeout: 1000 #1s
+    continue-on-error: true
+  resources:
+    staticLocations: 'file:src/main/resources/WebContent'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view=false:
+
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
